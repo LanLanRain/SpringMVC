@@ -1,0 +1,13 @@
+<!doctype html> <!-- 定义HTML文档类型 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!-- 指定文档语言为英语，引入Thymeleaf命名空间 -->
+    <head>
+        <title>First Spring MVC</title> <!-- 页面标题 -->
+    </head>
+    <body>
+        <!-- 链接到应用中的 "/test" 路径 -->
+        <a th:href="@{/test}">first</a>
+        <br><br> <!-- 插入换行 -->
+        <!-- 链接到应用中的 "/heihei" 路径 -->
+        <a th:href="@{/heihei}">other</a>
+    </body>
+</html>

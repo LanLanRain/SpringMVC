@@ -1,0 +1,10 @@
+<!doctype html> <!-- 定义文档类型为HTML5 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!-- 指定语言为英语，引入Thymeleaf命名空间 -->
+    <head>
+        <title>First Spring MVC</title> <!-- 页面标题 -->
+    </head>
+    <body>
+        <h1>First Spring MVC!</h1> <!-- 页面主要标题 -->
+        <a th:href="@{/heihei}">heihei</a> <!-- 使用Thymeleaf语法生成链接，指向路径/heihei -->
+    </body>
+</html>
