@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!-- 添加内联CSS或者链接外部CSS文件 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #4CAF50; /* 选择一个醒目的颜色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #45a049; /* 鼠标悬停时的颜色变化 */
+        }
+    </style>
+</head>
+<body>
+    <h1>首页</h1>
+    <a th:href="@{/first}">First Spring MVC Code!</a>
+</body>
+</html>
