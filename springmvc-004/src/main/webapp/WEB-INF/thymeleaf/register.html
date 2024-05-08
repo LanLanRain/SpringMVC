@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            background-color: #fff;
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="submit"],
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+<!--注册页面-->
+<form th:action="@{/user/reg}" method="post">
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required><br>
+    <label>性别:</label>
+    <input type="radio" id="male" name="sex" value="1" required>
+    <label for="male">男</label>
+    <input type="radio" id="female" name="sex" value="0">
+    <label for="female">女</label><br>
+    <label>兴趣:</label>
+    <input type="checkbox" id="smoke" name="interest" value="smoke">
+    <label for="smoke">抽烟</label>
+    <input type="checkbox" id="drink" name="interest" value="drink">
+    <label for="drink">喝酒</label>
+    <input type="checkbox" id="tt" name="interest" value="tt">
+    <label for="tt">烫头</label><br>
+    <label for="intro">简介:</label><br>
+    <textarea id="intro" name="intro" rows="4"></textarea><br>
+    <label for="age">年龄:</label>
+    <input type="text" id="age" name="age"><br>
+    <input type="submit" value="注册">
+</form>
+
+<!--发送Cookie给服务器-->
+<script>
+    function sendCookie(){
+        document.cookie = "id=123456789; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/";
+        document.location = "/springmvc/user/reg";
+    }
+</script>
+<button onclick="sendCookie()">向服务器端发送Cookie</button>
+
+</body>
+</html>
