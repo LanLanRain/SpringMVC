@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传与下载</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* 自定义CSS样式 */
+        body {
+            background-color: #f8f9fa; /* 设置背景色 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+            padding-top: 50px;
+        }
+
+        .container {
+            margin-top: 30px; /* 调整容器顶部间距 */
+            background-color: #fff; /* 设置容器背景色 */
+            padding: 20px; /* 添加内边距 */
+            border-radius: 10px; /* 添加边框圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+        }
+
+        .btn {
+            margin-top: 10px; /* 调整按钮顶部间距 */
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 20px; /* 调整在小屏幕上的容器顶部间距 */
+                padding: 15px; /* 调整在小屏幕上的内边距 */
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">文件上传与下载</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form th:action="@{/fileup}" method="post" enctype="multipart/form-data" class="form-group">
+                <label for="fileInput">文件上传：</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="fileInput" name="fileName">
+                    <label class="custom-file-label" for="fileInput">选择文件</label>
+                </div><br>
+                <button type="submit" class="btn btn-primary">上传</button>
+            </form>
+
+            <!--文件下载-->
+            <a th:href="@{/download}" class="btn btn-secondary">文件下载</a>
+        </div>
+    </div>
+</div>
+
+<!-- 引入Bootstrap和jQuery的JavaScript文件 -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript代码可以用来处理用户交互，比如文件选择后的标签更新
+    $('#fileInput').on('change',function(){
+        // 更新文件名的显示
+        var fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+</script>
+</body>
+</html>
