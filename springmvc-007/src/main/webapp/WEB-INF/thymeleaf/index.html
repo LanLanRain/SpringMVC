@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-5">测试RESTFul编程风格</h1>
+    <hr>
+
+    <!-- RESTful风格的：查看用户列表 -->
+    <a href="/user" class="btn btn-primary mb-3">查看用户列表</a><br>
+
+    <!-- RESTful风格的：根据id查询用户信息 -->
+    <a href="/user/110" class="btn btn-info mb-3">查询id=110的这个用户信息</a><br>
+
+    <!-- RESTful风格的：新增用户信息 -->
+    <form action="/user" method="post" class="mb-5">
+        <div class="form-group">
+            <label for="username">用户名：</label>
+            <input type="text" name="username" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">密码：</label>
+            <input type="password" name="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+            <label for="age">年龄：</label>
+            <input type="text" name="age" class="form-control" id="age">
+        </div>
+        <button type="submit" class="btn btn-success">保存</button>
+    </form>
+
+    <!-- RESTful风格的：修改用户信息 -->
+    <form action="/user" method="post" class="mb-5">
+        <input type="hidden" name="_method" value="put">
+        <div class="form-group">
+            <label for="username">用户名：</label>
+            <input type="text" name="username" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">密码：</label>
+            <input type="password" name="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+            <label for="age">年龄：</label>
+            <input type="text" name="age" class="form-control" id="age">
+        </div>
+        <button type="submit" class="btn btn-warning">修改</button>
+    </form>
+
+    <!-- RESTful风格的：删除用户信息 -->
+    <a href="/user/120" onclick="del(event)" class="btn btn-danger">删除用户id=120的用户信息</a>
+
+    <form id="delForm" method="post" class="d-none">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+
+    <script>
+        function del(event) {
+            let delForm = document.getElementById("delForm");
+            delForm.action = event.target.href;
+            delForm.submit();
+            event.preventDefault();
+        }
+    </script>
+
+</div>
+
+<!-- 引入Bootstrap JS和依赖 -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
